@@ -1,0 +1,24 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# deairdata
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/deairdata)](https://CRAN.R-project.org/package=deairdata)
+<!-- badges: end -->
+
+{deairdata} is a wrapper around the public API that provides access to
+air quality data from the [German Environment Agency
+(Umweltbundesamt)](https://www.umweltbundesamt.de/daten/luft/luftdaten/doc).
+
+## Installation
+
+You can install the development version of deairdata like so:
+
+``` r
+remotes::install_github("long39ng/deairdata")
+```
