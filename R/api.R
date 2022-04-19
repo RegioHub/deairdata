@@ -13,13 +13,9 @@ airdata_api <- function(endpoint, ...) {
 
   resp$path <- path
 
-  class(resp) <- c(class(resp), api_spec$paths[[path]]$get$tags)
+  class(resp) <- c(class(resp), endpoint)
 
   resp
-}
-
-airdata_extract <- function(x) {
-  UseMethod("airdata_extract")
 }
 
 api_error_body <- function(resp) {
@@ -28,4 +24,12 @@ api_error_body <- function(resp) {
   } else {
     NULL
   }
+}
+
+airdata_extract <- function(x) {
+  UseMethod("airdata_extract")
+}
+
+airdata_extract_parsed <- function(x) {
+  UseMethod("airdata_extract_parsed")
 }

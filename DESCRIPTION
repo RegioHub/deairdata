@@ -13,7 +13,6 @@ Depends:
     R (>= 4.1)
 Imports: 
     httr2,
-    purrr,
     snakecase
 Suggests: 
     testthat (>= 3.0.0),
