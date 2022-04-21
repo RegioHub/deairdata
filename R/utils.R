@@ -1,3 +1,36 @@
+resp_body_json2 <- function(resp) {
+  httr2::resp_body_json(
+    resp,
+    simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE
+  )
+}
+
+keep_numbered <- function(x) {
+  if (is.null(names(x))) return(x)
+
+  x[grep("^\\d+$", names(x))]
+}
+
+as_tibble2 <- function(x, col_names, col_types) {
+  x |>
+    rbind_list() |>
+    `colnames<-`(col_names) |>
+    as_tibble_maybe() |>
+    set_col_types(col_types)
+}
+
+rbind_list <- function(x) {
+  stopifnot(is.list(x))
+
+  tryCatch(
+    do.call("rbind", x),
+    warning = \(w) {
+      msg <- conditionMessage(w)
+      if (startsWith(msg, "number of columns")) stop(msg)
+    }
+  )
+}
+
 as_tibble_maybe <- function(x) {
   if (requireNamespace("tibble", quietly = TRUE)) {
     tibble::as_tibble(x)
@@ -19,7 +52,7 @@ set_col_types <- function(data, col_types) {
 
 set_col_type_ <- function(x, col_type) {
   coercer <- switch(col_type,
-    logical = as.logical,
+    logical = \(x) as.logical(as.integer(x)),
     integer = as.integer,
     double = as.double,
     character = as.character,

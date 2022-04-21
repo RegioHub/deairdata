@@ -30,6 +30,25 @@ airdata_extract <- function(x) {
   UseMethod("airdata_extract")
 }
 
+
+#' @export
+airdata_extract.default <- function(resp) {
+  endpoint <- setdiff(class(resp), "httr2_response")
+
+  parsed <- resp_body_json2(resp)
+
+  if ("data" %in% names(parsed)) {
+    data <- parsed$data
+  } else {
+    data <- parsed
+  }
+
+  data |>
+    keep_numbered() |>
+    `class<-`(c(class(data), endpoint)) |>
+    airdata_extract_parsed()
+}
+
 airdata_extract_parsed <- function(x) {
   UseMethod("airdata_extract_parsed")
 }
