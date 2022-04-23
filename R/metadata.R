@@ -131,19 +131,27 @@ airdata_extract_parsed.limits <- function(parsed) {
 
   general_limits <- Filter(function(x) length(x) == 2, parsed)
 
-  station_limits <- Filter(function(x) length(x) == 5, parsed)
+  station_limits <- Filter(function(x) length(x) %in% c(3, 5), parsed)
 
   stopifnot(length(parsed) == length(general_limits) + length(station_limits))
 
   general_limits <- mapply(
-    function(x, y) c(
-      unlist(strsplit(y, "", fixed = TRUE)), # scope, component
-      NA_character_, # station
-      x # min, max start date
-    ),
+    function(x, y) {
+      scope <- substr(y, 1, 1)
+      component <- substr(y, 2, 3)
+      c(scope, component, NA_character_, x)
+    },
     general_limits, names(general_limits),
     SIMPLIFY = FALSE
   )
+
+  station_limits <- station_limits %>%
+    lapply(function(x) {
+      if (length(x) == 3) {
+        x <- c(rep(NA_character_, 2), x)
+      }
+      x
+    })
 
   as_tibble2(
     c(station_limits, general_limits),

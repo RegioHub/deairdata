@@ -8,8 +8,8 @@ airdata_extract_parsed.measures <- function(parsed) {
           x, names(x),
           SIMPLIFY = FALSE
         ),
-        col_names = c("component", "scope", "value", "start_date", "end_date", "index"),
-        col_types = c(rep("integer", 2), "double", rep("date", 2), "integer")
+        col_names = c("component", "scope", "value", "start_dttm", "end_dttm", "index"),
+        col_types = c(rep("integer", 2), "double", rep("datetime", 2), "integer")
       )
     )
 }

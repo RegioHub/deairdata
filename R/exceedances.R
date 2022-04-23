@@ -1,3 +1,4 @@
+#' @export
 airdata_extract_parsed.transgressions <- function(parsed) {
   parsed %>%
     lapply(function(x) {
