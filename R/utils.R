@@ -1,3 +1,17 @@
+assert_integer <- function(x) {
+  if (length(x) != 1 && !is.integer(x)) {
+    stop(deparse(substitute(x)), " must be an integer", call. = FALSE)
+  }
+}
+
+assert_date <- function(x) {
+  x_date <- as.Date(x, format = "%Y-%m-%d")
+
+  if (!length(x_date) || is.na(x_date)) {
+    stop(deparse(substitute(x)), " must be a string <YYYY-MM-DD>", call. = FALSE)
+  }
+}
+
 resp_body_json2 <- function(resp) {
   httr2::resp_body_json(
     resp,

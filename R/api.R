@@ -44,14 +44,15 @@ airdata_extract.default <- function(resp) {
     data <- parsed
   }
 
+  data <- keep_numbered(data)
+
   if (!length(data)) {
     stop("No data returned for the specified query parameters.", call. = FALSE)
   }
 
-  data %>%
-    keep_numbered() %>%
-    `class<-`(c(class(data), endpoint)) %>%
-    airdata_extract_parsed()
+  class(data) <- c(class(data), endpoint)
+
+  airdata_extract_parsed(data)
 }
 
 airdata_extract_parsed <- function(x) {
