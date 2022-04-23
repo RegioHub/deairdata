@@ -10,7 +10,7 @@ Description: Enables access to air quality data from the German
     (<https://www.umweltbundesamt.de/daten/luft/luftdaten/doc>).
 License: MIT + file LICENSE
 Depends: 
-    R (>= 4.1)
+    R (>= 2.10)
 Imports: 
     httr2,
     memoise

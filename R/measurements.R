@@ -1,10 +1,10 @@
 #' @export
 airdata_extract_parsed.measures <- function(parsed) {
-  parsed |>
+  parsed %>%
     lapply(
-      \(x) as_tibble2(
+      function(x) as_tibble2(
         mapply(
-          FUN = \(x, y) c(x[1:3], y, x[4:5]),
+          FUN = function(x, y) c(x[1:3], y, x[4:5]),
           x, names(x),
           SIMPLIFY = FALSE
         ),
@@ -18,7 +18,7 @@ airdata_extract_parsed.measures <- function(parsed) {
 airdata_extract.measureslimits <- function(resp) {
   parsed <- resp_body_json2(resp)
 
-  parsed$data |>
-    `class<-`(c(class(parsed$data), "limits")) |>
+  parsed$data %>%
+    `class<-`(c(class(parsed$data), "limits")) %>%
     airdata_extract_parsed()
 }

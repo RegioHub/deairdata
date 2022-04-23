@@ -5,15 +5,15 @@ airdata_extract.meta <- function(resp) {
   use <- parsed$request$use
 
   parsed <- mapply(
-    \(x, y) x |>
-      `class<-`(c(class(x), y)) |>
+    function(x, y) x %>%
+      `class<-`(c(class(x), y)) %>%
       `attr<-`("use", use),
     parsed, names(parsed),
     SIMPLIFY = FALSE
   )
 
-  parsed |>
-    Filter(f = \(x) !(inherits(x, "request") | inherits(x, "years"))) |>
+  parsed %>%
+    Filter(f = function(x) !(inherits(x, "request") | inherits(x, "years"))) %>%
     lapply(airdata_extract_parsed)
 }
 
@@ -129,14 +129,14 @@ airdata_extract_parsed.limits <- function(parsed) {
     )
   }
 
-  general_limits <- Filter(\(x) length(x) == 2, parsed)
+  general_limits <- Filter(function(x) length(x) == 2, parsed)
 
-  station_limits <- Filter(\(x) length(x) == 5, parsed)
+  station_limits <- Filter(function(x) length(x) == 5, parsed)
 
   stopifnot(length(parsed) == length(general_limits) + length(station_limits))
 
   general_limits <- mapply(
-    \(x, y) c(
+    function(x, y) c(
       unlist(strsplit(y, "", fixed = TRUE)), # scope, component
       NA_character_, # station
       x # min, max start date

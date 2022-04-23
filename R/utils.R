@@ -12,10 +12,10 @@ keep_numbered <- function(x) {
 }
 
 as_tibble2 <- function(x, col_names, col_types) {
-  x |>
-    rbind_list() |>
-    `colnames<-`(col_names) |>
-    as_tibble_maybe() |>
+  x %>%
+    rbind_list() %>%
+    `colnames<-`(col_names) %>%
+    as_tibble_maybe() %>%
     set_col_types(col_types)
 }
 
@@ -24,7 +24,7 @@ rbind_list <- function(x) {
 
   tryCatch(
     do.call("rbind", x),
-    warning = \(w) {
+    warning = function(w) {
       msg <- conditionMessage(w)
       if (startsWith(msg, "number of columns")) stop(msg)
     }
@@ -52,7 +52,7 @@ set_col_types <- function(data, col_types) {
 
 set_col_type_ <- function(x, col_type) {
   coercer <- switch(col_type,
-    logical = \(x) as.logical(as.integer(x)),
+    logical = function(x) as.logical(as.integer(x)),
     integer = as.integer,
     double = as.double,
     character = as.character,

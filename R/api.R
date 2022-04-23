@@ -1,14 +1,15 @@
+#' @importFrom httr2 `%>%`
 airdata_api <- function(endpoint, ...) {
   stopifnot(endpoint %in% endpoints$name)
 
   path <- endpoints$path[endpoints$name == endpoint]
 
-  resp <- httr2::request(api_spec$servers[[1]]$url) |>
-    httr2::req_url_path_append(path) |>
-    httr2::req_url_query(...) |>
-    httr2::req_user_agent("https://github.com/long39ng/deairdata") |>
-    httr2::req_error(body = api_error_body) |>
-    httr2::req_retry(3) |>
+  resp <- httr2::request(api_spec$servers[[1]]$url) %>%
+    httr2::req_url_path_append(path) %>%
+    httr2::req_url_query(...) %>%
+    httr2::req_user_agent("https://github.com/long39ng/deairdata") %>%
+    httr2::req_error(body = api_error_body) %>%
+    httr2::req_retry(3) %>%
     httr2::req_perform()
 
   resp$path <- path
@@ -43,9 +44,9 @@ airdata_extract.default <- function(resp) {
     data <- parsed
   }
 
-  data |>
-    keep_numbered() |>
-    `class<-`(c(class(data), endpoint)) |>
+  data %>%
+    keep_numbered() %>%
+    `class<-`(c(class(data), endpoint)) %>%
     airdata_extract_parsed()
 }
 
