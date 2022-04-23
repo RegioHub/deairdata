@@ -52,13 +52,14 @@ set_col_types <- function(data, col_types) {
 
 set_col_type_ <- function(x, col_type) {
   coercer <- switch(col_type,
+    identity = identity,
     logical = function(x) as.logical(as.integer(x)),
     integer = as.integer,
     double = as.double,
     character = as.character,
     factor = as.factor,
-    date = as.Date,
-    datetime = as.POSIXct,
+    date = function(x) as.Date(as.character(x)),
+    datetime = function(x) as.POSIXct(as.character(x)),
     stop("Invalid `col_type`")
   )
 

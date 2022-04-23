@@ -3,6 +3,7 @@
 S3method(airdata_extract,default)
 S3method(airdata_extract,measureslimits)
 S3method(airdata_extract,meta)
+S3method(airdata_extract_parsed,airquality)
 S3method(airdata_extract_parsed,airqualitylimits)
 S3method(airdata_extract_parsed,annualbalances)
 S3method(airdata_extract_parsed,components)
