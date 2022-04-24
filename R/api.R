@@ -21,7 +21,7 @@ airdata_api <- function(endpoint, ...) {
 
 api_error_body <- function(resp) {
   if (httr2::resp_status(resp) == 422) {
-    "Required parameter(s) missing."
+    "Required parameter(s) missing/misspecified."
   } else {
     NULL
   }

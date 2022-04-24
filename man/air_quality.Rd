@@ -35,8 +35,8 @@ corresponding station with 5 columns:
 \item value: Measured value for this component
 \item index: Airquality index of this component
 \item pct_in_index_thresholds: Decimal representation of percent in index
-thresholds. 0.x is x percent between index 0 and 1, 1.x is x percent
-between index 1 and 2 etc.
+\link[=air_thresholds]{thresholds}. 0.x is x percent between index 0 and 1,
+1.x is x percent between index 1 and 2 etc.
 }
 }
 }

@@ -1,3 +1,22 @@
+#' Get exceedances data
+#'
+#' `air_exceedances()` returns exceedances for a component by station and month.
+#'
+#' @param year A 4-digit year
+#' @inheritParams air_thresholds
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' air_exceedances(5, 2020)
+#' }
+air_exceedances <- function(component, year) {
+  assert_integer(year)
+  lang <- getOption("deairdata_lang", "en")
+  airdata_call("transgressions")
+}
+
 #' @export
 airdata_extract_parsed.transgressions <- function(parsed) {
   parsed %>%

@@ -1,7 +1,8 @@
 #' Get all components
 #'
-#' Returns a list of all components measured
+#' `air_components()` returns a list of all air components measured.
 #'
+#' @rdname air_meta
 #' @export
 air_components <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -10,8 +11,9 @@ air_components <- function() {
 
 #' Get all networks
 #'
-#' Returns a list of all air measuring station networks
+#' `air_networks()` returns a list of all air measuring station networks.
 #'
+#' @rdname air_meta
 #' @export
 air_networks <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -20,7 +22,9 @@ air_networks <- function() {
 
 #' Get all scopes
 #'
-#' Returns a list of all measurement scopes
+#' `air_scopes()` returns a list of all measurement scopes.
+#'
+#' @rdname air_meta
 #' @export
 air_scopes <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -29,7 +33,7 @@ air_scopes <- function() {
 
 #' Get stations
 #'
-#' Returns a list of all air measuring stations for a certain use
+#' `air_stations()` returns a list of all air measuring stations for a certain use.
 #'
 #' @param use Should data for "annualbalance", "airquality", "measure", or
 #'   "transgression" be returned?
@@ -59,7 +63,9 @@ air_stations <- function(use = c("annualbalance", "airquality", "measure", "tran
 
 #' Get all station settings
 #'
-#' Returns a list of all station settings
+#' `air_station_settings()` returns a list of all station settings.
+#'
+#' @rdname air_stations
 #' @export
 air_station_settings <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -68,7 +74,9 @@ air_station_settings <- function() {
 
 #' Get all station types
 #'
-#' Returns a list of all station types
+#' `air_station_types()` returns a list of all station types.
+#'
+#' @rdname air_stations
 #' @export
 air_station_types <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -77,12 +85,13 @@ air_station_types <- function() {
 
 #' Get all thresholds
 #'
-#' Returns a list of all station types
+#' `air_thresholds()` returns a list of all thresholds.
 #'
 #' @param use Should thresholds for "airquality" or "measure" be returned?
-#' @param component ID of component (see [air_components()])
+#' @param component ID of component (see [air_components])
 #' @param scope ID of scope (see [air_scopes])
 #'
+#' @rdname air_meta
 #' @export
 air_thresholds <- function(use, component = NULL, scope = NULL) {
   use <- match.arg(use, c("airquality", "measure"))
@@ -92,7 +101,9 @@ air_thresholds <- function(use, component = NULL, scope = NULL) {
 
 #' Get all exceedances types
 #'
-#' Returns a list of all exceedances types
+#' `air_exceedances_types()` returns a list of all exceedances types.
+#'
+#' @rdname air_exceedances
 #' @export
 air_exceedances_types <- function() {
   lang <- getOption("deairdata_lang", "en")
@@ -101,11 +112,12 @@ air_exceedances_types <- function() {
 
 #' Get data availability
 #'
-#' Returns a list of available dates/years
+#' `air_data_availability()` returns a list of available dates/years.
 #'
 #' @param use Should data for "annualbalance", "airquality", or "measure" be returned?
 #' @inheritParams air_stations
 #'
+#' @rdname air_meta
 #' @export
 air_data_availability <- function(use = c("annualbalance", "airquality", "measure"),
                                   date_from = NULL,

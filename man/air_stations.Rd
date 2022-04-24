@@ -2,6 +2,8 @@
 % Please edit documentation in R/metadata.R
 \name{air_stations}
 \alias{air_stations}
+\alias{air_station_settings}
+\alias{air_station_types}
 \title{Get stations}
 \usage{
 air_stations(
@@ -11,6 +13,10 @@ air_stations(
   date_to = NULL,
   time_to = NULL
 )
+
+air_station_settings()
+
+air_station_types()
 }
 \arguments{
 \item{use}{Should data for "annualbalance", "airquality", "measure", or
@@ -21,5 +27,9 @@ air_stations(
 \item{time_from, time_to}{An hour (1..24)}
 }
 \description{
-Returns a list of all air measuring stations for a certain use
+\code{air_stations()} returns a list of all air measuring stations for a certain use.
+
+\code{air_station_settings()} returns a list of all station settings.
+
+\code{air_station_types()} returns a list of all station types.
 }

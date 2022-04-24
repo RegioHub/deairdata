@@ -17,8 +17,8 @@
 #'     * value: Measured value for this component
 #'     * index: Airquality index of this component
 #'     * pct_in_index_thresholds: Decimal representation of percent in index
-#'       thresholds. 0.x is x percent between index 0 and 1, 1.x is x percent
-#'       between index 1 and 2 etc.
+#'       [thresholds][air_thresholds]. 0.x is x percent between index 0 and 1,
+#'       1.x is x percent between index 1 and 2 etc.
 #' @export
 #'
 #' @examples
