@@ -1,7 +1,7 @@
 Package: deairdata
 Title: API Wrapper to Access Air Data from the German Environment Agency
     (Umweltbundesamt)
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person("Long", "Nguyen", , "long.nguyen@uni-bielefeld.de", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8878-7386"))
@@ -15,6 +15,7 @@ Imports:
     httr2,
     memoise
 Suggests: 
+    sf,
     testthat (>= 3.0.0),
     tibble
 Config/testthat/edition: 3

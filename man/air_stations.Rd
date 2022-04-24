@@ -11,7 +11,8 @@ air_stations(
   date_from = NULL,
   time_from = NULL,
   date_to = NULL,
-  time_to = NULL
+  time_to = NULL,
+  return_sf = FALSE
 )
 
 air_station_settings()

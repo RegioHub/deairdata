@@ -45,7 +45,8 @@ air_stations <- function(use = c("annualbalance", "airquality", "measure", "tran
                          date_from = NULL,
                          time_from = NULL,
                          date_to = NULL,
-                         time_to = NULL) {
+                         time_to = NULL,
+                         return_sf = FALSE) {
   use <- match.arg(use)
   lang <- getOption("deairdata_lang", "en")
 
@@ -58,7 +59,17 @@ air_stations <- function(use = c("annualbalance", "airquality", "measure", "tran
     assert_integer(time_to)
   }
 
-  airdata_call("meta")[["stations"]]
+  ret <- airdata_call("meta")[["stations"]]
+
+  if (!return_sf) {
+    return(ret)
+  }
+
+  if (!requireNamespace("sf", quietly = TRUE)) {
+    stop("Package {sf} needed to return the data as an sf object.")
+  } else {
+    sf::st_as_sf(ret, coords = c("long", "lat"), crs = sf::st_crs("EPSG:4326"))
+  }
 }
 
 #' Get all station settings
