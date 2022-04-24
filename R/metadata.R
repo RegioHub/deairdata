@@ -1,6 +1,10 @@
-#' Get all components
+#' Get metadata
 #'
 #' `air_components()` returns a list of all air components measured.
+#' `air_networks()` returns a list of all air measuring station networks.
+#' `air_scopes()` returns a list of all measurement scopes.
+#' `air_thresholds()` returns a list of all thresholds.
+#' `air_data_availability()` returns a list of available dates/years.
 #'
 #' @rdname air_meta
 #' @export
@@ -9,10 +13,6 @@ air_components <- function() {
   airdata_call("components")
 }
 
-#' Get all networks
-#'
-#' `air_networks()` returns a list of all air measuring station networks.
-#'
 #' @rdname air_meta
 #' @export
 air_networks <- function() {
@@ -20,10 +20,6 @@ air_networks <- function() {
   airdata_call("networks")
 }
 
-#' Get all scopes
-#'
-#' `air_scopes()` returns a list of all measurement scopes.
-#'
 #' @rdname air_meta
 #' @export
 air_scopes <- function() {
@@ -94,10 +90,6 @@ air_station_types <- function() {
   airdata_call("stationtypes")
 }
 
-#' Get all thresholds
-#'
-#' `air_thresholds()` returns a list of all thresholds.
-#'
 #' @param use Should thresholds for "airquality" or "measure" be returned?
 #' @param component ID of component (see [air_components])
 #' @param scope ID of scope (see [air_scopes])
@@ -121,10 +113,6 @@ air_exceedances_types <- function() {
   airdata_call("transgressiontypes")
 }
 
-#' Get data availability
-#'
-#' `air_data_availability()` returns a list of available dates/years.
-#'
 #' @param use Should data for "annualbalance", "airquality", or "measure" be returned?
 #' @inheritParams air_stations
 #'

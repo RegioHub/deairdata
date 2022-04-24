@@ -6,7 +6,7 @@
 \alias{air_scopes}
 \alias{air_thresholds}
 \alias{air_data_availability}
-\title{Get all components}
+\title{Get metadata}
 \usage{
 air_components()
 
@@ -41,12 +41,8 @@ air_data_availability(
 }
 \description{
 \code{air_components()} returns a list of all air components measured.
-
 \code{air_networks()} returns a list of all air measuring station networks.
-
 \code{air_scopes()} returns a list of all measurement scopes.
-
 \code{air_thresholds()} returns a list of all thresholds.
-
 \code{air_data_availability()} returns a list of available dates/years.
 }
