@@ -5,7 +5,7 @@
 #' @export
 air_components <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("components", lang = lang))
+  airdata_call("components")
 }
 
 #' Get all networks
@@ -15,7 +15,7 @@ air_components <- function() {
 #' @export
 air_networks <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("networks", lang = lang))
+  airdata_call("networks")
 }
 
 #' Get all scopes
@@ -24,7 +24,7 @@ air_networks <- function() {
 #' @export
 air_scopes <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("scopes", lang = lang))
+  airdata_call("scopes")
 }
 
 #' Get stations
@@ -33,7 +33,7 @@ air_scopes <- function() {
 #'
 #' @param use Should data for "annualbalance", "airquality", "measure", or
 #'   "transgression" be returned?
-#' @param date_from,date_to A date "YYYY-MM-DD" (required only for use = "airquality")
+#' @param date_from,date_to A date ("YYYY-MM-DD", required only for use = "airquality")
 #' @param time_from,time_to An hour (1..24)
 #'
 #' @export
@@ -54,15 +54,7 @@ air_stations <- function(use = c("annualbalance", "airquality", "measure", "tran
     assert_integer(time_to)
   }
 
-  airdata_extract(airdata_api(
-    "meta",
-    use = use,
-    lang = lang,
-    date_from = date_from,
-    time_from = time_from,
-    date_to = date_to,
-    time_to = time_to
-  ))[["stations"]]
+  airdata_call("meta")[["stations"]]
 }
 
 #' Get all station settings
@@ -71,7 +63,7 @@ air_stations <- function(use = c("annualbalance", "airquality", "measure", "tran
 #' @export
 air_station_settings <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("stationsettings", lang = lang))
+  airdata_call("stationsettings")
 }
 
 #' Get all station types
@@ -80,7 +72,7 @@ air_station_settings <- function() {
 #' @export
 air_station_types <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("stationtypes", lang = lang))
+  airdata_call("stationtypes")
 }
 
 #' Get all thresholds
@@ -95,13 +87,7 @@ air_station_types <- function() {
 air_thresholds <- function(use, component = NULL, scope = NULL) {
   use <- match.arg(use, c("airquality", "measure"))
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api(
-    "thresholds",
-    use = use,
-    lang = lang,
-    component = component,
-    scope = scope
-  ))
+  airdata_call("thresholds")
 }
 
 #' Get all exceedances types
@@ -110,7 +96,7 @@ air_thresholds <- function(use, component = NULL, scope = NULL) {
 #' @export
 air_exceedances_types <- function() {
   lang <- getOption("deairdata_lang", "en")
-  airdata_extract(airdata_api("transgressiontypes", lang = lang))
+  airdata_call("transgressiontypes")
 }
 
 #' Get data availability
@@ -121,7 +107,7 @@ air_exceedances_types <- function() {
 #' @inheritParams air_stations
 #'
 #' @export
-air_data_availability <- function(use = c("airquality", "measure", "annualbalance"),
+air_data_availability <- function(use = c("annualbalance", "airquality", "measure"),
                                   date_from = NULL,
                                   time_from = NULL,
                                   date_to = NULL,
@@ -138,15 +124,7 @@ air_data_availability <- function(use = c("airquality", "measure", "annualbalanc
     assert_integer(time_to)
   }
 
-  airdata_extract(airdata_api(
-    "meta",
-    use = use,
-    lang = lang,
-    date_from = date_from,
-    time_from = time_from,
-    date_to = date_to,
-    time_to = time_to
-  ))[["limits"]]
+  airdata_call("meta")[["limits"]]
 }
 
 #' @export

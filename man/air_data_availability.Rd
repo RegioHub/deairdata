@@ -5,7 +5,7 @@
 \title{Get data availability}
 \usage{
 air_data_availability(
-  use = c("airquality", "measure", "annualbalance"),
+  use = c("annualbalance", "airquality", "measure"),
   date_from = NULL,
   time_from = NULL,
   date_to = NULL,
@@ -15,11 +15,11 @@ air_data_availability(
 \arguments{
 \item{use}{Should data for "annualbalance", "airquality", or "measure" be returned?}
 
-\item{date_from}{A date "YYYY-MM-DD" (required only for use = "airquality")}
+\item{date_from}{A date ("YYYY-MM-DD", required only for use = "airquality")}
 
 \item{time_from}{An hour (1..24)}
 
-\item{date_to}{A date "YYYY-MM-DD" (required only for use = "airquality")}
+\item{date_to}{A date ("YYYY-MM-DD", required only for use = "airquality")}
 
 \item{time_to}{An hour (1..24)}
 }

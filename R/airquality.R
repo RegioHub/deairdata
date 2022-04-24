@@ -1,10 +1,58 @@
+#' Get air quality data
+#'
+#' Returns air quality data by [station][air_stations] and [component][air_components]
+#'
+#' @inheritParams air_stations
+#' @param station ID of the station to get data from. If `NULL`, get data from
+#'   all available stations.
+#'
+#' @return A named list where the names are station IDs and each element is a
+#'   [nested data frame](https://tidyr.tidyverse.org/articles/nest.html) for the
+#'   corresponding station with 5 columns:
+#'   * start_dttm, end_dttm: Time of start and end of measuring in CET
+#'   * index: Airquality index for all components
+#'   * is_incomplete: Flag if data is incomplete (not all components available)
+#'   * data: List column of data frames with the measured components
+#'     * component: Component ID
+#'     * value: Measured value for this component
+#'     * index: Airquality index of this component
+#'     * pct_in_index_thresholds: Decimal representation of percent in index
+#'       thresholds. 0.x is x percent between index 0 and 1, 1.x is x percent
+#'       between index 1 and 2 etc.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' air_quality("2020-01-01", 9, "2020-01-01", 11, station = 7)
+#' }
+air_quality <- function(date_from, time_from, date_to, time_to, station = NULL) {
+  lang <- getOption("deairdata_lang", "en")
+
+  assert_date(date_from)
+  assert_date(date_to)
+  assert_integer(time_from)
+  assert_integer(time_to)
+  if (!is.null(station)) assert_integer(station)
+
+  airdata_call("airquality")
+}
+
+#' Get air quality date limits
+#'
+#' Returns the date limits of air quality stations
+#'
+#' @export
+air_quality_date_limits <- function() {
+  airdata_call("airqualitylimits")
+}
+
 #' @export
 airdata_extract_parsed.airquality <- function(parsed) {
   lapply(
     parsed,
     function(x) as_tibble2(
       mapply(
-        function(x, y) airquality_by_station_date(x, start_dttm = y),
+        function(x, y) airquality_by_station_hour(x, start_dttm = y),
         x, names(x),
         SIMPLIFY = FALSE
       ),
@@ -14,7 +62,7 @@ airdata_extract_parsed.airquality <- function(parsed) {
   )
 }
 
-airquality_by_station_date <- function(x, start_dttm) {
+airquality_by_station_hour <- function(x, start_dttm) {
   stopifnot(is.list(x) && length(x) > 3)
 
   data <- as_tibble2(
@@ -29,8 +77,12 @@ airquality_by_station_date <- function(x, start_dttm) {
 #' @export
 airdata_extract_parsed.airqualitylimits <- function(parsed) {
   as_tibble2(
-    parsed,
-    col_names = c("min_start_dttm", "max_start_dttm"),
-    col_types = rep("datetime", 2)
+    mapply(
+      function(x, y) c(y, x),
+      parsed, names(parsed),
+      SIMPLIFY = FALSE
+    ),
+    col_names = c("station", "min_start_dttm", "max_start_dttm"),
+    col_types = c("integer", rep("datetime", 2))
   )
 }

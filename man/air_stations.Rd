@@ -16,7 +16,7 @@ air_stations(
 \item{use}{Should data for "annualbalance", "airquality", "measure", or
 "transgression" be returned?}
 
-\item{date_from, date_to}{A date "YYYY-MM-DD" (required only for use = "airquality")}
+\item{date_from, date_to}{A date ("YYYY-MM-DD", required only for use = "airquality")}
 
 \item{time_from, time_to}{An hour (1..24)}
 }

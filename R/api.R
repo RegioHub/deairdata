@@ -58,3 +58,12 @@ airdata_extract.default <- function(resp) {
 airdata_extract_parsed <- function(x) {
   UseMethod("airdata_extract_parsed")
 }
+
+airdata_call <- function(endpoint) {
+  airdata_extract(
+    do.call(
+      "airdata_api",
+      c(list(endpoint = endpoint), as.list(parent.frame()))
+    )
+  )
+}
