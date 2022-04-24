@@ -2,9 +2,12 @@
 % Please edit documentation in R/airquality.R
 \name{air_quality}
 \alias{air_quality}
+\alias{air_quality_date_limits}
 \title{Get air quality data}
 \usage{
 air_quality(date_from, time_from, date_to, time_to, station = NULL)
+
+air_quality_date_limits()
 }
 \arguments{
 \item{date_from}{A date ("YYYY-MM-DD", required only for use = "airquality")}
@@ -15,8 +18,8 @@ air_quality(date_from, time_from, date_to, time_to, station = NULL)
 
 \item{time_to}{An hour (1..24)}
 
-\item{station}{ID of the station to get data from. If \code{NULL}, get data from
-all available stations.}
+\item{station}{ID of the \link[=air_stations]{station} to get data from. If \code{NULL},
+include all available stations.}
 }
 \value{
 A named list where the names are station IDs and each element is a
@@ -38,7 +41,10 @@ between index 1 and 2 etc.
 }
 }
 \description{
-Returns air quality data by \link[=air_stations]{station} and \link[=air_components]{component}
+\code{air_quality()} returns air quality data for the provided parameters.
+
+\code{air_quality_date_limits()} returns the date limits of air quality data by
+\link[=air_stations]{station}.
 }
 \examples{
 \dontrun{

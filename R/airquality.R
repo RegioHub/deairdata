@@ -1,10 +1,10 @@
 #' Get air quality data
 #'
-#' Returns air quality data by [station][air_stations] and [component][air_components]
+#' `air_quality()` returns air quality data for the provided parameters.
 #'
 #' @inheritParams air_stations
-#' @param station ID of the station to get data from. If `NULL`, get data from
-#'   all available stations.
+#' @param station ID of the [station][air_stations] to get data from. If `NULL`,
+#'   include all available stations.
 #'
 #' @return A named list where the names are station IDs and each element is a
 #'   [nested data frame](https://tidyr.tidyverse.org/articles/nest.html) for the
@@ -26,8 +26,6 @@
 #' air_quality("2020-01-01", 9, "2020-01-01", 11, station = 7)
 #' }
 air_quality <- function(date_from, time_from, date_to, time_to, station = NULL) {
-  lang <- getOption("deairdata_lang", "en")
-
   assert_date(date_from)
   assert_date(date_to)
   assert_integer(time_from)
@@ -39,7 +37,10 @@ air_quality <- function(date_from, time_from, date_to, time_to, station = NULL) 
 
 #' Get air quality date limits
 #'
-#' Returns the date limits of air quality stations
+#' `air_quality_date_limits()` returns the date limits of air quality data by
+#'   [station][air_stations].
+#'
+#' @rdname air_quality
 #'
 #' @export
 air_quality_date_limits <- function() {

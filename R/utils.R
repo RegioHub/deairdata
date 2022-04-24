@@ -70,7 +70,7 @@ set_col_type_ <- function(x, col_type) {
     logical = function(x) as.logical(as.integer(x)),
     integer = as.integer,
     double = as.double,
-    character = as.character,
+    character = function(x) ifelse(nzchar(x), as.character(x), NA_character_),
     factor = as.factor,
     date = function(x) as.Date(as.character(x)),
     datetime = function(x) as.POSIXct(as.character(x)),
