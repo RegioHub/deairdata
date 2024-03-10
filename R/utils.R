@@ -1,5 +1,5 @@
 assert_integer <- function(x) {
-  if (length(x) != 1 || !(is.numeric(x) && x %% 1 == 0)) {
+  if (length(x) != 1 || !(is.numeric(x) && as.integer(x) == 0)) {
     stop(deparse(substitute(x)), " must be an integer", call. = FALSE)
   }
 }
