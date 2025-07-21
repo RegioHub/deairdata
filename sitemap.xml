@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://regiohub.github.io/deairdata/404.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/index.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_annual.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_exceedances.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_measures.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_meta.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_quality.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/air_stations.html</loc>
-  </url>
-  <url>
-    <loc>https://regiohub.github.io/deairdata/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://regiohub.github.io/deairdata/404.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/LICENSE-text.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/LICENSE.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/authors.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/index.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_annual.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_exceedances.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_measures.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_meta.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_quality.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/air_stations.html</loc></url>
+<url><loc>https://regiohub.github.io/deairdata/reference/index.html</loc></url>
 </urlset>
+
