@@ -153,7 +153,9 @@ airdata_extract.meta <- function(resp) {
   )
 
   parsed %>%
-    Filter(f = function(x) !(inherits(x, "request") | inherits(x, "years"))) %>%
+    Filter(f = function(x) {
+      !(inherits(x, "indices") | inherits(x, "request") | inherits(x, "years"))
+    }) %>%
     lapply(airdata_extract_parsed)
 }
 
