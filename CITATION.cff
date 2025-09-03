@@ -1,0 +1,130 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+
+cff-version: 1.2.0
+message: 'To cite package "deairdata" in publications use:'
+type: software
+license: MIT
+title: 'deairdata: API Wrapper to Access Air Data from the German Environment Agency
+  (Umweltbundesamt)'
+version: 0.2.0
+doi: 10.5281/zenodo.17049923
+abstract: Enables access to air quality data from the German Environment Agency via
+  the Umweltbundesamt Air Data Public API (<https://www.umweltbundesamt.de/daten/luft/luftdaten/doc>).
+authors:
+- family-names: Nguyen
+  given-names: Long
+  email: long.nguyen@uni-bielefeld.de
+  orcid: https://orcid.org/0000-0001-8878-7386
+preferred-citation:
+  type: manual
+  title: 'deairdata: API Wrapper to Access Air Data from the German Environment Agency
+    (Umweltbundesamt)'
+  authors:
+  - family-names: Nguyen
+    given-names: Long
+    email: long.nguyen@uni-bielefeld.de
+    orcid: https://orcid.org/0000-0001-8878-7386
+  doi: 10.5281/zenodo.17049923
+  year: '2025'
+  version: 0.2.0
+  url: https://github.com/RegioHub/deairdata
+repository-code: https://github.com/RegioHub/deairdata
+url: https://regiohub.github.io/deairdata/
+contact:
+- family-names: Nguyen
+  given-names: Long
+  email: long.nguyen@uni-bielefeld.de
+  orcid: https://orcid.org/0000-0001-8878-7386
+references:
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 2.10'
+- type: software
+  title: httr2
+  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  notes: Imports
+  url: https://httr2.r-lib.org
+  repository: https://CRAN.R-project.org/package=httr2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.httr2
+- type: software
+  title: memoise
+  abstract: 'memoise: ''Memoisation'' of Functions'
+  notes: Imports
+  url: https://memoise.r-lib.org
+  repository: https://CRAN.R-project.org/package=memoise
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+  - family-names: Cook
+    given-names: Daniel
+    email: danielecook@gmail.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.memoise
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Suggests
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2025'
+  doi: 10.32614/CRAN.package.sf
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.testthat
+  version: '>= 3.0.0'
+- type: software
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Suggests
+  url: https://tibble.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=tibble
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.tibble
+
